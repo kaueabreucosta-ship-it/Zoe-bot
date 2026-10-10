@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zoe — bot de moderação, IA e zoeira</title>
+<meta name="description" content="Zoe: moderação por IA, anti-link, anti-raid, economia e duelos de zoeira pro seu servidor do Discord.">
+<style>
+:root{
+  --bg:#0B0714;--card:#1B0B2E;--line:#4B1B7A;--roxo:#8A2BE2;--claro:#B57BFF;--suave:#D4B5FF;--texto:#F1E8FF;--rosa:#FF6FA5;
+  color-scheme:dark;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--texto);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header.hero{padding:72px 0 48px;text-align:center;background:radial-gradient(600px 300px at 50% 0,rgba(138,43,226,.35),transparent 70%)}
+.badge{display:inline-block;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--suave);font-size:13px}
+h1{font-size:clamp(44px,12vw,88px);margin:16px 0 8px;letter-spacing:-2px;line-height:1;background:linear-gradient(180deg,#fff,var(--claro));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:560px;margin:0 auto 28px;color:var(--suave);font-size:18px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid var(--roxo);color:var(--texto)}
+.btn.main{background:var(--roxo)}
+.btn[aria-disabled="true"]{opacity:.55;pointer-events:none}
+section{padding:40px 0}
+h2{font-size:28px;margin:0 0 6px}
+.lead{color:var(--suave);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:0 0 12px;font-size:18px;color:var(--claro)}
+.cmd{margin:0 0 10px;font-size:15px}
+code{background:#0B0714;border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--rosa);font:600 14px ui-monospace,Menlo,Consolas,monospace;white-space:nowrap}
+.hl{border-color:var(--roxo);background:linear-gradient(135deg,#2a0f4a,var(--card))}
+.hl p{margin:0 0 8px}
+.hl ul{margin:8px 0 0;padding-left:20px;color:var(--suave)}
+footer{padding:32px 0 48px;text-align:center;color:var(--suave);font-size:14px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">● online 24h</span>
+    <h1 id="nome">Zoe</h1>
+    <p class="sub">Moderação por IA, anti-link, anti-raid, economia e duelos de zoeira. Tudo no seu servidor.</p>
+    <div class="btns">
+      <a id="convite" class="btn main" href="#" aria-disabled="true">Adicionar ao servidor</a>
+      <a class="btn" href="#comandos">Ver comandos</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <div class="card hl">
+      <h3>🔗 Anti-link</h3>
+      <p>Mandou link e não é moderador nem owner? A mensagem some na hora, a pessoa leva um aviso e a staff recebe o registro no canal de logs.</p>
+      <ul>
+        <li>Pega <code>https://</code>, <code>www.</code>, <code>discord.gg/</code> e site solto como <code>loja.com.br</code></li>
+        <li>Editou a mensagem pra enfiar link depois? Também apaga.</li>
+        <li>Liberados: dono do servidor, cargos Moderador / Owner</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="comandos">
+    <h2>Comandos</h2>
+    <p class="lead">Tudo com barra (/). Alguns exigem cargo liberado pelo owner.</p>
+    <div class="grid">
+      <div class="card"><h3>😈 Zoeira</h3>
+        <p class="cmd"><code>/larp</code> cada um manda uma imagem "luxuosa" e a IA diz quem foi mais. O perdedor leva <b>moggado</b>.</p>
+        <p class="cmd"><code>/briga</code> a IA decide quem ganha a briga.</p>
+        <p class="cmd"><code>/discussao</code> canal público só pros dois se xingarem. Em 15 min a IA julga.</p>
+      </div>
+      <div class="card"><h3>🧠 IA</h3>
+        <p class="cmd"><code>/perguntar</code> pergunta qualquer coisa pra IA.</p>
+        <p class="cmd"><code>/contexto</code> liga/desliga a memória de conversa do canal.</p>
+        <p class="cmd"><code>/iastatus</code> mostra quais IAs estão ativas.</p>
+        <p class="cmd">Ou só <b>marca a Zoe</b> / responde uma mensagem dela no chat.</p>
+      </div>
+      <div class="card"><h3>🎰 Economia</h3>
+        <p class="cmd"><code>/saldo</code> <code>/diario</code> <code>/perfil</code> <code>/ranking</code></p>
+        <p class="cmd"><code>/transferir</code> manda moeda pra alguém.</p>
+        <p class="cmd"><code>/cassino</code> <code>/tigrinho</code> aposta e reza.</p>
+      </div>
+      <div class="card"><h3>🛡️ Proteção</h3>
+        <p class="cmd"><code>/moderacao</code> moderação por IA + auto-mod (spam, flood, caps).</p>
+        <p class="cmd"><code>/antiraid</code> barra enxurrada de contas novas.</p>
+        <p class="cmd"><code>/banir</code> <code>/desbanir</code> <code>/banidos</code></p>
+      </div>
+      <div class="card"><h3>⚙️ Servidor</h3>
+        <p class="cmd"><code>/cargos</code> cria e edita cargos e permissões num painel.</p>
+        <p class="cmd"><code>/permissoes</code> o owner escolhe o que cada cargo pode usar.</p>
+        <p class="cmd"><code>/backup</code> salva e restaura cargos e canais.</p>
+        <p class="cmd"><code>/ticket</code> painel de atendimento. <code>/nuke</code> recria o canal.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Feito pra servidor que não aguenta spam de link. 💜</footer>
+
+<script>
+// Troque aqui: nome do bot e o ID do aplicativo (Discord Developer Portal → General Information → Application ID)
+var BOT_NOME = 'Zoe';
+var CLIENT_ID = '';
+document.getElementById('nome').textContent = BOT_NOME;
+document.title = BOT_NOME + ' — bot de moderação, IA e zoeira';
+if (CLIENT_ID) {
+  var a = document.getElementById('convite');
+  a.href = 'https://discord.com/oauth2/authorize?client_id=' + encodeURIComponent(CLIENT_ID) + '&scope=bot%20applications.commands&permissions=8';
+  a.removeAttribute('aria-disabled');
+}
+</script>
+</body>
+</html>
